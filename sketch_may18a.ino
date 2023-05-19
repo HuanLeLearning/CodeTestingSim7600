@@ -61,6 +61,7 @@ void setup() {
 }
 // Khởi động DS18B20
 void initDS18B20(){
+  sensors.begin();
   for(int i=0;i<numberOfDevices; i++){
     // Search the wire for address
     if(sensors.getAddress(tempDeviceAddress, i)){
