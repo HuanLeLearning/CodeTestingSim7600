@@ -62,6 +62,13 @@ void setup() {
 // Khởi động DS18B20
 void initDS18B20(){
   sensors.begin();
+  numberOfDevices = sensors.getDeviceCount();
+  
+  // locate devices on the bus
+  Serial.print("Locating devices...");
+  Serial.print("Found ");
+  Serial.print(numberOfDevices, DEC);
+  Serial.println(" devices.");
   for(int i=0;i<numberOfDevices; i++){
     // Search the wire for address
     if(sensors.getAddress(tempDeviceAddress, i)){
